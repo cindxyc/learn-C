@@ -5,12 +5,12 @@ C program first needs to be given a package that includes the functions to be us
 
 Here, '''printf()''' is classified as an Input Output function, so we have to include a "Standard Input Output" package
 
-''' c
+'''c
 #include <stdio.h>
 '''
 
 Next, we need a class to contain the function.
-''' c
+'''c
 int main () {
     
     printf("hello world\n");
@@ -20,7 +20,7 @@ int main () {
 '''
 
 Output:
-'''
+'''c
 hello world
 '''
 
@@ -34,7 +34,7 @@ In C programming, the '''return 0''' statement is typically used at the end of t
 In C, we can make the '''printf()''' function to call a variable that we declared. Inside of '''printf()''', we use '''%d''' to tell the program to replace with an int.
 
 For example:
-''' c
+'''c
 int main () {
     int num = 13;
     printf("Taylor's fav number: %d\n", num);
@@ -43,13 +43,13 @@ int main () {
 }'''
 
 Output:
-'''
+'''c
 Taylor's fav number: 13
 '''
 
 If we want to use a float, declare the variable
 
-'''
+'''c
 double floatNum = 2.2;
 '''
 
@@ -59,6 +59,7 @@ Then use '''%f''' instead of '''%d'''.
 Multiple variables is possible as well. To do this, just make sure that the variables are in order as wanted.
 
 For example:
+'''c
 int main () {
     int num1 = 1;
     int num2 = 2;
@@ -66,6 +67,7 @@ int main () {
     
     return 0;
 }
+'''
 
 Output:
 '''
