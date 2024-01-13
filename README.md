@@ -1,1 +1,3 @@
-Notes from learning C
+# C
+
+Self made notes from learning C
