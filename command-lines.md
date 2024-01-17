@@ -24,12 +24,24 @@ copy a file
 cp
 ```
 
+
+## Compiling the file
+
 To compile the file, let's say, the file `program.c`. This line tells the compiler to read our file, and produce and executable file that we can run
 ```console
 gcc program.c
 ```
 
-When we check the current working directory again, we will see that a new executable file is added that ends in `.out`.
+Other than just compiling, `-Wall` will give you any warning messages in your code.
+`-o` allows you to specify the name of the executable file.
+`-g` creates debugging symbols.
+
+```console
+gcc -Wall -o program program.c
+```
+
+In this case, we get a new executable file name `program` that if you run `./program`, it gives the same output as before.
+When we check the current working directory again, we will see that a new executable file that we have named is added that ends in `.out` or `program` if we have specified the name of the executable file.
 
 To run the file simply type `./` in front of the name of the file.
 
@@ -40,13 +52,7 @@ To run the file simply type `./` in front of the name of the file.
 Running `ls -F` can check if a file is an executable file. There will be a star `*` following the file. For example, `xxx.out*`
 
 
-## Compiling the file
-
-```console
-gcc -Wall -o program program.c
-```
-Other than just compiling, `Wall` will give you any warning messages that your code
-`-o` allows you to specify the name of the executable file where `gcc` will save its output. In this case, we get a new executable file name `program` that if you run `./program`, it gives the same output as before.
+We can also use some redirection operators `<` and `>` that can redirect standard input and output to file, and pipe the standard output of one program into the standard input of another program using `|`.
 
 
 ## Permission of the file
