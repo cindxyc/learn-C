@@ -7,12 +7,11 @@ In C, an array is initialized with a size. General Syntax:
 datatype array_name[size] = {elements};
 ```
 
-`datatype`
-* type of the element stored in the array, such as `int`, `float`, `char`, or `double` data
-`[]`
-* \# of elements stored
-`{}`
-* initializer list
+`datatype`: type of the element stored in the array, such as `int`, `float`, `char`, or `double` data
+
+`[]`: # of elements stored
+
+`{}`: initializer list
 
 ## Ways to initialize an array
 
@@ -35,7 +34,8 @@ int array[13] = {1, 3};
 
 ## Array decay
 When an array is passed to function, for example, `printf(“%lu\n”, array)`, array becomes the pointer to the first element. In other words, it will only use the first element of the array.
-To work with the entire array, we need to pass the size of the array to the function `printf(“%lu\n”, array[size])`
+
+To work with the entire array, we need to pass the size of the array to the function:
 ```c
 void print_array(int size, const int arr[size]) {
     for (int i = 0; i < size; i++) {
@@ -44,7 +44,7 @@ void print_array(int size, const int arr[size]) {
     printf("\n");
 }
 ```
-In the function parameter, size as an int needs to be placed before the array
+*Important: In the function parameter, `size` as an `int` needs to be placed before the array.*
 
 
 ## Const Correctness
