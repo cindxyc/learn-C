@@ -50,3 +50,44 @@ void print_array(int size, const int arr[size]) {
 ## Const Correctness
 
 When working with arrays in C, it is possible that the arrays are modified after being passed to a function. The qualifier `const` helps to prevent modifications and make the shit read-only.
+
+
+## Allocating Array
+
+Suppose we have two arrays `l1` and `l2` and we want to allocating them using pointers.
+```c
+int l1[] = {x, ...};
+int l2[] = {x, ...}; // we don't know the size
+```
+
+Step 1: Define the pointers
+```c
+int **pointers = malloc(sizeof(int*) * num);
+```
+`**pointers`: we need one allocating the item (array), and another one allocating to the `int` (inside of the array)
+`malloc(sizeof(int*) * num)`: here we have 2 arrays, so in fact the code is `malloc(sizeof(int*) * 2)` if we have more, adjust it according the number of arrays we have
+
+Step 2: For each pointer allocating the item, define its size according to the array length
+```c
+pointer[0] = malloc(sizeof(int*) * length);  // need a free() statement later
+pointer[1] = malloc(sizeof(int*) * length);  // need a free() statement later
+...
+```
+`length`: size of the array
+
+Step 3: Assign the integers
+```c
+pointer[0][0] = x;
+pointer[0][1] = y;
+...
+```
+
+Lastly: Freeing the pointers
+Due to the structure of arrays, we cannot free the entire pointer at once. Moreover, we need to free the sublist of arrays in order beforehand.
+In other words, each `malloc()` should have a corresponding `free()` statement.
+
+```c
+free(pointers[0]);
+free(pointers[1]);
+free(pointers);
+```
