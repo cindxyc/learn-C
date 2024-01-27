@@ -7,7 +7,7 @@ Example: `NULL`
 
 ## Code
 Where the code is stored once the file is compiled into machine instructions.
-\* Note: array starts at 0, but the code segment is close to but NOT at 0
+\* *Note: array starts at 0, but the code segment is close to but NOT at 0*
 
 ## Global Data
 Data outside of the functions, is allocated for the entire program.
@@ -30,6 +30,7 @@ Some other global data include but not limited to: pointers
 
 ## Heap
 Dynamically allocated memory, with longer lifetime than the function. Keeps the data until we explicitly deallocate it (`free()`).
+\* *NOTE: must deallocate memory after use*
 ```c
 void *malloc(size_t size);
 ```
@@ -86,8 +87,11 @@ as wanted.
 Small space that seperates `Heap` and `Stack`
 
 ## Stack
-Stores local variables.
-Function calls are removed in last in first out order (growing up visually)
+Stores local variables, infomation about a function call.
+* Automatically allocated when functions are called
+* Automatically deallocated when functions return
+* \*Function calls are removed in last in first out order (growing up visually)
+\* *NOTE: local variables cannot be accessed after function ends, its lifetime is inside the bracket they belong to*
 
 Example code:
 ```c
@@ -108,7 +112,7 @@ Order:
 int a, int b, int i
 ```
 Once excuted, the stack frame is popped and return the value (`int i`) to the caller (`main`)
-\* Note: only accessible when the function that defines them is active
+\* *Note: only accessible when the function that defines them is active*
 
 2. function currently being executed: `main`
 Is the first stack once local variables are popped out.
